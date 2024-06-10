@@ -19,7 +19,7 @@ export default function Admin_Login() {
         Aos.init({ duration: 500, delay: 200 });
     });
     const adminLogin = () => {
-        axios.post('https://whatsapp-clone-backend-seven.vercel.app/loginAdmin', { username: username, password: password })
+        axios.post('https://restaunt-mern-backend.vercel.app/loginAdmin', { username: username, password: password })
             .then((res) => {
                 if (res.data.message === "Login Successfull") {
                     toast.success(res.data.message,{
