@@ -8,7 +8,7 @@ const app = express();
 app.use(bodyParser.json());
 app.use(cors(
     {
-        origin:["https://restaunt-mern-frontend.vercel.app/"],
+        origin:["https://restaunt-mern-frontend.vercel.app","https://restaunt-mern-frontend.vercel.app/"],
         methods:["POST","GET"],
         credentials:true
     }
