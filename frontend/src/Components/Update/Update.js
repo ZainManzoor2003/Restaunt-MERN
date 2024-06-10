@@ -22,7 +22,7 @@ export default function Update() {
         Aos.init({ duration: 500, delay: 200 });
     });
     useEffect(() => {
-        id && axios.post(`https://whatsapp-clone-backend-seven.vercel.app/verifyAuth`, { cookie: Cookies.get(`token${id}`) }).then((res) => {
+        id && axios.post(`https://restaunt-mern-backend.vercel.app/verifyAuth`, { cookie: Cookies.get(`token${id}`) }).then((res) => {
             if (res.data.mes !== 'Success') {
                 setAuth(false)
                 navigate('/')
@@ -38,7 +38,7 @@ export default function Update() {
         }
     }, [])
     const getUserData = async () => {
-        let data = await fetch(`https://whatsapp-clone-backend-seven.vercel.app/fetchUserData/${id}`);
+        let data = await fetch(`https://restaunt-mern-backend.vercel.app/fetchUserData/${id}`);
         let res = await data.json();
         setUserData({
             name: res[0].name, username: res[0].username, password: res[0].password, email: res[0].email, address: res[0].address,
@@ -46,7 +46,7 @@ export default function Update() {
         })
     }
     const updateProfile = () => {
-        axios.post(`https://whatsapp-clone-backend-seven.vercel.app/updateProfile/${id}`, userData)
+        axios.post(`https://restaunt-mern-backend.vercel.app/updateProfile/${id}`, userData)
             .then((res) => {
                 showalert(res.data.message);
             })
