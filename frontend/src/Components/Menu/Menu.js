@@ -17,7 +17,7 @@ export default function Menu() {
         Aos.init({ duration: 200, delay: 200 });
     });
     const getMenuData = async () => {
-        let data = await fetch('http://localhost:3001/fetchMenuItems');
+        let data = await fetch('https://whatsapp-clone-backend-seven.vercel.app/fetchMenuItems');
         let res = await data.json();
         setMenuData(res);
         setTempMenuData(res);
@@ -44,7 +44,7 @@ export default function Menu() {
         })
     }
     const buynow = (index) => {
-        axios.post(`http://localhost:3001/buyNow/${id}`, { order: tempmenuData[index] })
+        axios.post(`https://whatsapp-clone-backend-seven.vercel.app/buyNow/${id}`, { order: tempmenuData[index] })
             .then(() => {
                 Swal.fire('Order Placed!', '', 'success')
             })
@@ -64,7 +64,7 @@ export default function Menu() {
             user_id: id, item_name: tempmenuData[i].item_name, price: tempmenuData[i].price,
             image: tempmenuData[i].image
         });
-        axios.post(`http://localhost:3001/addToCart/${id}`, cartItem)
+        axios.post(`https://whatsapp-clone-backend-seven.vercel.app/addToCart/${id}`, cartItem)
             .then((res) => {
                 if (res.data.message === 'Added to Cart') {
                     toast.success(res.data.message, {

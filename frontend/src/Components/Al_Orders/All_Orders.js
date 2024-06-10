@@ -13,9 +13,8 @@ export default function All_Orders() {
   const [additemactive, setaddItemActive] = useState(false);
   const [alloredrsactive, setAllOrdersActive] = useState(true)
   const [alertmsg, setalert] = useState(null);
-  const [currentUser, setCurrent_User] = useState(localStorage.getItem('Current User'));
   const getallOrders = async () => {
-    let data = await fetch('http://localhost:3001/allOrders');
+    let data = await fetch('https://whatsapp-clone-backend-seven.vercel.app/allOrders');
     let res = await data.json();
     setOrderData(res);
   }
@@ -52,14 +51,14 @@ export default function All_Orders() {
       showalert('Please fill input fields');
     }
     else {
-      axios.post('http://localhost:3001/addItem', menu)
+      axios.post('https://whatsapp-clone-backend-seven.vercel.app/addItem', menu)
         .then((res) => {
           showalert(res.data.message);
         })
     }
   }
   const confirmOrder = (id) => {
-    axios.post('http://localhost:3001/confirmOrder', { id: id })
+    axios.post('https://whatsapp-clone-backend-seven.vercel.app/confirmOrder', { id: id })
       .then((res) => {
           toast.success(res.data.message,{
             autoClose:1000
@@ -68,7 +67,7 @@ export default function All_Orders() {
       })
   }
   const cancelOrder = (id) => {
-    axios.post('http://localhost:3001/cancelOrder', { id: id })
+    axios.post('https://whatsapp-clone-backend-seven.vercel.app/cancelOrder', { id: id })
       .then((res) => {
           toast.success(res.data.message,{
             autoClose:1000

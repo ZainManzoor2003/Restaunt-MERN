@@ -45,7 +45,7 @@ export default function Signup() {
             })
         }
         else {
-            axios.post('http://localhost:3001/addnewuser', user)
+            axios.post('https://whatsapp-clone-backend-seven.vercel.app/addnewuser', user)
                 .then((res) => {
                     toast.success(res.data.message, {
                         autoClose: 1000

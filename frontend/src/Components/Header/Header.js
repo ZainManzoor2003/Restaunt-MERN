@@ -21,7 +21,7 @@ export default function Header() {
     const [carttrue, setcarttrue] = useState(false);
     const {cartData,setCartData}=useContext(CreateContextApi);
     const getCartData = async () => {
-        let data = await fetch(`http://localhost:3001/fetchCartData/${id}`);
+        let data = await fetch(`https://whatsapp-clone-backend-seven.vercel.app/fetchCartData/${id}`);
         let res = await data.json();
         setCartData(res);
     }
@@ -50,7 +50,7 @@ export default function Header() {
         })
     }
     const deleteCart=(i)=>{
-        axios.post(`http://localhost:3001/deleteCart/${id}`,{item_name:cartData[i].item_name})
+        axios.post(`https://whatsapp-clone-backend-seven.vercel.app/deleteCart/${id}`,{item_name:cartData[i].item_name})
         .then((res)=>{
             if(res.data.message==='Item Deleted from Cart')
             {
@@ -70,7 +70,7 @@ export default function Header() {
 
     }
     const deleteAccount=()=>{
-        axios.post(`http://localhost:3001/deleteAccount/${id}`)
+        axios.post(`https://whatsapp-clone-backend-seven.vercel.app/deleteAccount/${id}`)
         .then((res)=>{
             Swal.fire('Account Deleted!', '', 'success')
             if(res.data.message==="Your Account and all associated data deleted")
