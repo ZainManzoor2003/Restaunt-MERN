@@ -13,7 +13,7 @@ export default function My_Orders() {
   const { orderData, setOrderData, auth, setAuth } = useContext(CreateContextApi);
   const navigate = useNavigate();
   useEffect(() => {
-    id && axios.post(`https://whatsapp-clone-backend-seven.vercel.app/verifyAuth`, { cookie: Cookies.get(`token${id}`) }).then((res) => {
+    id && axios.post(`https://restaunt-mern-backend.vercel.app/verifyAuth`, { cookie: Cookies.get(`token${id}`) }).then((res) => {
       if (res.data.mes !== 'Success') {
         setAuth(false)
         navigate('/')
@@ -29,12 +29,12 @@ export default function My_Orders() {
     }
   }, [])
   const getMyOrders = async () => {
-    let data = await fetch(`https://whatsapp-clone-backend-seven.vercel.app/myOrders/${id}`);
+    let data = await fetch(`https://restaunt-mern-backend.vercel.app/myOrders/${id}`);
     let res = await data.json();
     setOrderData(res);
   }
   const deleteOrder = (id) => {
-    axios.post('https://whatsapp-clone-backend-seven.vercel.app/deleteMyOrder', { id: id })
+    axios.post('https://restaunt-mern-backend.vercel.app/deleteMyOrder', { id: id })
       .then((res) => {
         toast.success(res.data.message, {
           autoClose: 1000
