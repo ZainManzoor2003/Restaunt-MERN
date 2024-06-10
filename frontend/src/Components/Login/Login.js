@@ -28,7 +28,7 @@ export default function Login() {
         })
     }
     const login = () => {
-        axios.post('https://whatsapp-clone-backend-seven.vercel.app/loginUser', user)
+        axios.post('https://restaunt-mern-backend.vercel.app/loginUser', user)
         .then((res) => {
             if (res.data.message === "Login Successfull") {
                     toast.success(res.data.message,{
