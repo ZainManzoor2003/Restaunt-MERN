@@ -21,7 +21,7 @@ export default function Main_Page() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        id && axios.post(`https://whatsapp-clone-backend-seven.vercel.app/verifyAuth`, { cookie: Cookies.get(`token${id}`) }).then((res) => {
+        id && axios.post(`https://restaunt-mern-backend.vercel.app/verifyAuth`, { cookie: Cookies.get(`token${id}`) }).then((res) => {
             if (res.data.mes !== 'Success') {
                 setAuth(false)
                 navigate('/')
