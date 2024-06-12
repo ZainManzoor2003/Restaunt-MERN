@@ -5,7 +5,6 @@ const cors = require('cors');
 const connection=require('./db')
 const router=require('./routers/router')
 const app = express();
-app.use(express.json());
 app.use(bodyParser.json());
 app.use(cors(
     {
