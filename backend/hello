@@ -1,2 +1,0 @@
-MONGOOSE_URL='mongodb+srv://zainmanzoor:restaurant123@restaurantcluster.58idby5.mongodb.net/'
-JWT_SECRETKEY='restuarant'
